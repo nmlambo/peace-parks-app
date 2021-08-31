@@ -1,7 +1,6 @@
 import '../../App.css';
 import Banner from '../Banner'
 import Map from '../Map';
-;
 
 function Home() {
     return (
@@ -9,16 +8,9 @@ function Home() {
             < Banner />
             {/* Testing */}
 
-            
-
-            <>
-            {/* Map */}
-            < Map />
-            
-            </>
-            
-
-
+            <div className='home__section'>
+                <Map />
+            </div>
 
         </>
     )

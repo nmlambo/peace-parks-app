@@ -7,8 +7,6 @@ import Settings from './components/pages/Settings';
 import Covid19 from './components/pages/Covid19';
 import LogOut from './components/pages/LogOut';
 
-
-
 function App() {
   return (
     <Router>
@@ -20,7 +18,6 @@ function App() {
         <Route path='/covid-19' component={Covid19} />
         <Route path='/log-out' component={LogOut} />
       </Switch>
-      
     </Router>
   );
 }

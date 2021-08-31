@@ -1,3 +1,20 @@
+.banner {
+  background: url('../images/skynews-northern-white-rhino_4892310.jpg')
+    center center;
+  height: 76vh;
+  position: relative;
+}
+
+.banner__info {
+  background-color: black;
+  color: white;
+  padding-top: 10vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  width: 350px;
+}
+
 .banner__search {
   display: flex;
   flex-direction: column;
@@ -7,11 +24,11 @@
   background-color: white !important;
   font-weight: 900 !important;
   text-transform: inherit !important;
-  color: #2BA84C !important;
+  color: #2AA74B !important;
 }
 
 .banner__info > button {
-  background-color: #2BA84C;
+  background-color: #2AA74B;
   color: white;
   text-transform: inherit;
   margin-top: 20px;
@@ -20,5 +37,9 @@
 
 .banner__info > button:hover {
   background-color: white;
-  color: #2BA84C;
+  color: #2AA74B;
+}
+
+.banner__info > h5 {
+  margin-top: 10px;
 }

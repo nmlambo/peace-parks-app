@@ -1,0 +1,37 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+      "type": "Feature",
+      "id": 0,
+      "properties": {
+        "Code": "FRLA",
+        "Name": "Frederick Law Olmsted National Historic Site"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.131129569256473, 42.325508673715092]
+      }
+    }, {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+        "Code": "JOFI",
+        "Name": "John F Kennedy National Historic Site"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.122964491483273, 42.346597554503667]
+      }
+    }, {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+        "Code": "LONG",
+        "Name": "Longfellow House - Washington's Headquarters National Historic Site"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.125896173955724, 42.377018699780116]
+      }
+    }]
+  }
