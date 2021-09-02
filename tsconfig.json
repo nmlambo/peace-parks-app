@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+      "es2015",
+      "dom"
     ],
     "allowJs": true,
     "skipLibCheck": true,

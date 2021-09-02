@@ -22,7 +22,7 @@ function Banner() {
       <div className='banner__info'>
         <h1>SAFE GAURDING OUR RHINOS</h1>
         <h5>
-        Reconnecting Africa’s wild spaces, to create a future for humankind in harmony with nature.
+          Reconnecting Africa’s wild spaces, to create a future for humankind in harmony with nature.
         </h5>
         <Button variant='outlined'>
           Visit Us

@@ -18,17 +18,12 @@
     font-size: 3rem;
   }
   
-  .home {
-    background-image: url('https://www.peaceparks.org/wp-content/uploads/2018/05/test-slide-2560x1440.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-  }
 
   .home__section {
     display: flex;
     padding: 30px;
+    position: relative;
+
   }
   
   .settings {

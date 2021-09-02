@@ -1,0 +1,24 @@
+{
+  "data": {
+    "SouthAfricanCities": [
+      {
+        "city": "Durban",
+        "country": "South Africa",
+        "id": "c5b10066-2a5b-4bda-8bac-506ba5f5b7af",
+        "location": "(-29.858681,31.021839)"
+      },
+      {
+        "city": "Johannesburg",
+        "country": "South Africa",
+        "id": "aa641546-e004-46c1-8b54-c201cae0b216",
+        "location": "(-26.204103,28.047304)"
+      },
+      {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "id": "03b0de98-a71e-40ed-bdc8-d55d716ed75a",
+        "location": "(-33.92487,18.424055)"
+      }
+    ]
+  }
+}
