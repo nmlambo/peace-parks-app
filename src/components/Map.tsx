@@ -19,53 +19,35 @@ const MAP = gql`
     }
 `;
 
-export default function Map(props: string[]) {
-    const [city, setCity] = useState("");
-    const [country, setCountry] = useState("");
-    const [lat, setLat] = useState(0);
-    const [long, setLong] = useState(0);
-    const [reviews, setReviews] = useState([]);
-    const { loading, error, data } = useQuery(MAP, {
-        variables: {
-            id: props[0]
-        }
-    });
+export default function Map(id: string[]) {
+    const { loading, error, data } = useQuery(MAP, { variables: { id } });
+    const [position, setPosition] = useState({ lat: -26.2041, lng: 28.0473 });
+    const [zoom, setZoom] = useState(5);
 
     useEffect(() => {
         if (data) {
-            setCity(data.SouthAfricanCities_by_pk.city);
-            setCountry(data.SouthAfricanCities_by_pk.country);
-            setLat(data.SouthAfricanCities_by_pk.location.lat);
-            setLong(data.SouthAfricanCities_by_pk.location.long);
-            setReviews(data.SouthAfricanCities_by_pk.reviews);
+            setPosition({ lat: data.SouthAfricanCities_by_pk.location.latitude, lng: data.SouthAfricanCities_by_pk.location.longitude });
+            setZoom(12);
         }
     }, [data]);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error</div>;
 
     return (
-        <div className="map">
-            <MapContainer center={[lat, long]} zoom={13}>
-                <TileLayer
-                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[lat, long]}>
-                    <Popup>
-                        <span>{city}, {country}</span>
-                    </Popup>
-                </Marker>
-            </MapContainer>
-            <div className="reviews">
-                {reviews.map((review: any) => {
-                    return (
-                        <div className="review" key={review.id}>
-                            <p>{review.body}</p>
-                        </div>
-                    )
-                })}
-            </div>
-        </div>
-    )
+        <MapContainer center={position} zoom={zoom}>
+            <TileLayer
+                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+                <Popup>
+                    <span>{data.SouthAfricanCities_by_pk.city}
+                        <br />
+                        {data.SouthAfricanCities_by_pk.country}
+                    </span>
+                </Popup>
+            </Marker>
+        </MapContainer>
+    );
 }
