@@ -1,6 +1,6 @@
 import '../../App.css';
 import Banner from '../Banner'
-import Map from '../Map';
+import Map from '../Map'
 
 function Home() {
     return (
