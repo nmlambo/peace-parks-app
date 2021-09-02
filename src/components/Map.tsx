@@ -19,18 +19,19 @@ const MAP = gql`
     }
 `;
 
-export default function Map() {
+const Map = ({ id }) => {
     const { loading, error, data } = useQuery(MAP, {
-        variables: {
-            string: "",
-        },
+        variables: { id }
     });
 
-    const [mapData, setMapData] = useState([]);
+    const [position, setPosition] = useState({ lat: -30.559483, lng: 22.937506 });
 
     useEffect(() => {
         if (data) {
-            setMapData(data.map.names);
+            setPosition({
+                lat: data.SouthAfricanCities_by_pk.location.latitude,
+                lng: data.SouthAfricanCities_by_pk.location.longitude
+            });
         }
     }, [data]);
 
@@ -38,20 +39,21 @@ export default function Map() {
     if (error) return <p>Error :(</p>;
 
     return (
-        <MapContainer center={[51.505, -0.09]} zoom={13}>
+        <MapContainer center={position} zoom={13}>
             <TileLayer
-                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
-            {mapData.map(({ name, lat, lng, city }) => (
-                <Marker key={name} position={[lat, lng]}>
-                    <Popup>
-                        <span>{name}</span>
-                        <br />
-                        <span>{city}</span>
-                    </Popup>
-                </Marker>
-            ))}
+            <Marker position={position}>
+                <Popup>
+                    <div>
+                        <h2>{data.SouthAfricanCities_by_pk.city}</h2>
+                        <p>{data.SouthAfricanCities_by_pk.country}</p>
+                    </div>
+                </Popup>
+            </Marker>
         </MapContainer>
     );
-}
+};
+
+export default Map;
