@@ -7,7 +7,6 @@ import "./Navbar.css";
 
 import Dropdown from './Dropdown';
 
-
 function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -68,11 +67,26 @@ function Navbar() {
             className='nav-item'
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-          >
+            onMouseDown={() => setClick(!click)}
+            onMouseUp={closeMobileMenu}
+            onMouseDownCapture={closeMobileMenu}
+            onMouseUpCapture={closeMobileMenu}
+            onAnimationEnd={closeMobileMenu}
+            onAnimationEndCapture={closeMobileMenu}
+            onAbortCapture={closeMobileMenu}
+            onAbort={closeMobileMenu}
+            onAuxClick={closeMobileMenu}
+            onAuxClickCapture={closeMobileMenu}
+            onBlur={closeMobileMenu}
+            onBlurCapture={closeMobileMenu}
+            onCanPlay={closeMobileMenu}
+            onCanPlayCapture={closeMobileMenu}
+            >
             <div
               className='nav-links'
               onClick={closeMobileMenu}
-            >
+              onMouseEnter={onMouseEnter}
+                          >
               <Avatar
                 alt="Ndumiso Mlambo"
                 src="https://lh3.googleusercontent.com/10LpvXbxQpIm_IGre1TK59tIvmxD_YFQCsp6-2hFkjxJyPRb7Tu3XuYQS1Mr4Bxilias2muJ0XKXVsat-VcaVFTJPA"
